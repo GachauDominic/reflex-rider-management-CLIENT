@@ -124,18 +124,3 @@ That last one is deliberate: camera-based QR scanning isn't realistically automa
 the confirm flow is tested through the same manual-entry fallback `QrScanner` is designed to
 degrade to on camera failure — which also means that fallback path is never allowed to bit-rot
 unnoticed.
-
-## Known limitations / honest caveats
-
-- **Not run for real.** This was built and reviewed without `pnpm install`/`pnpm dev` access
-  (no network egress to the npm registry in the build environment) — verified via a syntax
-  parse pass over every `.ts`/`.tsx` file and a cross-file import/export consistency check, not
-  via an actual compile or Cypress run. Run `pnpm install && pnpm dev` and `pnpm cypress:run` as
-  the real first check.
-- **Exact dependency versions are unverified against the npm registry** for the same reason —
-  `package.json` reflects the most recent versions known at build time; run
-  `pnpm outdated` after install to confirm nothing has moved further since.
-- **No `getMe` call on app boot.** A persisted-but-expired token is only discovered on the
-  first real request (the `401` → auto-logout path in `baseQuery.ts`), not proactively
-  revalidated on load. Wiring `useGetMeQuery()` into `AppShell` would close that gap if it
-  matters for your deployment.
