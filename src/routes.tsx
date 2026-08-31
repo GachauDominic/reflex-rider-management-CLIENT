@@ -1,6 +1,7 @@
-import { Navigate, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import { RequireAuth, RequireRole } from "./components/RouteGuards";
 import { AppShell } from "./components/AppShell";
+import WelcomePage from "./pages/WelcomePage";
 import LoginPage from "./pages/LoginPage";
 import DeliveriesPage from "./pages/DeliveriesPage";
 import NewDeliveryPage from "./pages/NewDeliveryPage";
@@ -12,11 +13,13 @@ import NotFoundPage from "./pages/NotFoundPage";
 export function AppRoutes() {
   return (
     <Routes>
+      {/* Public — WelcomePage itself redirects to /deliveries if already
+          authenticated, mirroring the same pattern LoginPage uses. */}
+      <Route path="/" element={<WelcomePage />} />
       <Route path="/login" element={<LoginPage />} />
 
       <Route element={<RequireAuth />}>
         <Route element={<AppShell />}>
-          <Route index element={<Navigate to="/deliveries" replace />} />
           <Route path="deliveries" element={<DeliveriesPage />} />
           <Route path="deliveries/:id" element={<DeliveryDetailPage />} />
 

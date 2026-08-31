@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { DELIVERY_STATUS_FLOW, type DeliveryStatus } from "../types";
 
 export const STATUS_META: Record<DeliveryStatus, { label: string; color: string }> = {
@@ -50,7 +51,7 @@ export function StatusFlowRail({ status }: { status: DeliveryStatus }) {
               className={`inline-block h-2.5 w-2.5 rounded-full ${isCurrent ? "ring-2 ring-offset-2 ring-offset-base-100" : ""}`}
               style={{
                 backgroundColor: isReached ? meta.color : "var(--color-base-300)",
-                ...(isCurrent ? ({ "--tw-ring-color": meta.color } as React.CSSProperties) : {}),
+                ...(isCurrent ? ({ "--tw-ring-color": meta.color } as CSSProperties) : {}),
               }}
               title={meta.label}
             />

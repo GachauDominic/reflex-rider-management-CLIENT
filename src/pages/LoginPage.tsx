@@ -22,7 +22,7 @@ export default function LoginPage() {
 
   // Already signed in — don't show the login form again.
   if (token) {
-    const from = (location.state as { from?: Location })?.from?.pathname ?? "/";
+    const from = (location.state as { from?: Location })?.from?.pathname ?? "/deliveries";
     return <Navigate to={from} replace />;
   }
 
@@ -30,7 +30,7 @@ export default function LoginPage() {
     try {
       const result = await login(values).unwrap();
       dispatch(credentialsSet(result));
-      navigate("/", { replace: true });
+      navigate("/deliveries", { replace: true });
     } catch {
       // Surfaced below via the `error` state from useLoginMutation() —
       // nothing further to do here.

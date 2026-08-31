@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router";
 import { HiOutlinePhone, HiOutlineMapPin, HiOutlineCube } from "react-icons/hi2";
 import type { Delivery } from "../types";
 import { StatusFlowRail } from "./StatusFlowRail";
 import { formatDateTime } from "../lib/format";
 
-export function DeliveryCard({ delivery, actions }: { delivery: Delivery; actions?: React.ReactNode }) {
+export function DeliveryCard({ delivery, actions }: { delivery: Delivery; actions?: ReactNode }) {
   return (
     <div className="card border border-base-300 bg-base-100 shadow-sm transition-shadow hover:shadow-md">
       <div className="card-body gap-3 p-5">
