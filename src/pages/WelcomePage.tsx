@@ -7,7 +7,6 @@ import {
   HiOutlineBolt,
 } from "react-icons/hi2";
 import { useAppSelector } from "../app/hooks";
-import { HeroCanvas } from "../components/three/HeroCanvas";
 import { StatusFlowRail } from "../components/StatusFlowRail";
 import { prefersReducedMotion } from "../lib/motion";
 import { gsap } from "../lib/gsap";
