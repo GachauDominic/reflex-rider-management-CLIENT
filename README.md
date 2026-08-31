@@ -123,4 +123,8 @@ integration suite. `cypress/e2e/`:
 That last one is deliberate: camera-based QR scanning isn't realistically automatable in CI, so
 the confirm flow is tested through the same manual-entry fallback `QrScanner` is designed to
 degrade to on camera failure — which also means that fallback path is never allowed to bit-rot
+<<<<<<< HEAD
 unnoticed.
+=======
+unnoticed.
+>>>>>>> 83ca16380e5c96115bcd2ff992a245d1bbb9ad04
